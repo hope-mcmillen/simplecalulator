@@ -15,12 +15,13 @@ void main() {
       tester.widget<Text>(find.byKey(const Key('result'))).data!;
 
   testWidgets('Supports all four operations', (tester) async {
+    //starts up the app
     await tester.pumpWidget(const MyApp());
     for (final example in [
-      ['8', '+', '2', '=', '10'],
-      ['8', '−', '2', '=', '6'],
-      ['8', '×', '2', '=', '16'],
-      ['8', '÷', '2', '=', '4'],
+      ['6', '+', '2', '=', '8'],
+      ['6', '−', '2', '=', '4'],
+      ['6', '×', '2', '=', '12'],
+      ['6', '÷', '2', '=', '3'],
     ]) {
       await enter(tester, ['AC', ...example.take(4)]);
       expect(result(tester), example.last);
